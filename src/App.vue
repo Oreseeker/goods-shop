@@ -1,32 +1,53 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+	  <div class="navbar">
+		  <div class="left"></div>
+		  <div class="right">
+			  <div class="btn cart"></div>
+		  </div>
+	  </div>
   </div>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+	body {
+		height: 100vh;
+		width: 100vw;
+		display: flex;
+		justify-content: stretch;
+		margin: 0;
+	}
+	#app {
+		display: flex;
+		justify-content: stretch;
+		width: 100%;
+	}
 
-#nav {
-  padding: 30px;
-}
+	.btn {
+		cursor: pointer;
+	}
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+	.navbar {
+		height: 50px;
+		width: 100%;
+		background-color: #5287ff;
+		display: flex;
+		justify-content: space-between;
+	}
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+	.navbar .btn {
+		transition-property: background-color;
+		transition-duration: 0.3s;
+	}
+
+	.navbar .btn:hover {
+		background-color: #85acff;
+	}
+
+	.cart {
+		height: 100%;
+		background: url('./assets/cart.svg') no-repeat center;
+		width: 50px;
+		background-size: 25px;
+	}
 </style>
