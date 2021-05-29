@@ -4,7 +4,7 @@
 		  <div class="left"></div>
 		  <div class="right">
 			  <div class="btn cart">
-				  <div class="number-of-goods">{{ numberOfGoods }}</div>
+				  <div class="number-of-goods">{{ numberOfProductsInCart }}</div>
 			  </div>
 		  </div>
 	  </div>
@@ -30,44 +30,63 @@ export default {
 					id: 0,
 					title: 'Порошок Persil',
 					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600'
+					price: '600',
+					inStock: 20,
+					rating: 3
 				},
 				{
 					id: 1,
 					title: 'Порошок Persil',
 					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600'
+					price: '600',
+					inStock: 0,
+					rating: 5,
 				},
 				{
 					id: 2,
 					title: 'Порошок Persil',
 					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600'
+					price: '600',
+					inStock: 20,
+					rating: 0
 				},
 				{
 					id: 3,
 					title: 'Порошок Persil',
 					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600'
+					price: '600',
+					inStock: 20,
+					rating: 1
 				},
 				{
 					id: 4,
 					title: 'Порошок Persil',
 					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600'
+					price: '600',
+					inStock: 20,
+					rating: 4
 				},
 			]
 		};
 	},
 	computed: {
-		numberOfGoods() {
-			return this.$store.getters.numOfGoods;
+		numberOfProductsInCart() {
+			return this.$store.getters.numberOfProductsInCart;
 		}
 	}
 }
 </script>
 
 <style>
+	* {
+		font-family: Avenir, sans-serif;
+		box-sizing: border-box;
+	}
+
+	input, select {
+		outline: none;
+	}
+
 	body {
 		height: 100vh;
 		width: 100vw;
@@ -118,14 +137,15 @@ export default {
 	.number-of-goods {
 		background: yellow;
 		border-radius: 50%;
-		height: 20px;
-		width: 20px;
+		height: 23px;
+		width: 23px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		position: absolute;
 		top: 7px;
 		right: 7px;
+		font-weight: bold;
 	}
 
 	.content {

@@ -5,21 +5,30 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        numberOfGoods: 0
+        productsInCart: []
     },
     mutations: {
-        // CHANGE_LOGIN_WINDOW_VISIBILITY(state, loginWindowVisible) {
-        //     state.loginWindowVisible = loginWindowVisible;
-        // }
+        ADD_PRODUCT_TO_CART(state, product) {
+            const foundProductIndex = state.productsInCart.findIndex(prod => prod.id === product.id);
+            if (foundProductIndex === -1) {
+                state.productsInCart.push(product);
+            } else {
+                state.productsInCart[foundProductIndex].amount += product.amount;
+            }
+        }
     },
     actions: {
-        // changeLoginWindowVisibility(store, loginWindowVisible) {
-        //     store.commit('CHANGE_LOGIN_WINDOW_VISIBILITY', loginWindowVisible);
-        // }
+        addProductToCart(store, product, amount) {
+            store.commit('ADD_PRODUCT_TO_CART', product);
+        }
     },
     getters: {
-        numOfGoods(state) {
-            return state.numberOfGoods;
+        numberOfProductsInCart(state) {
+            let numberOfProductsInCart = 0;
+            state.productsInCart.forEach(product => {
+                numberOfProductsInCart += product.amount
+            })
+            return numberOfProductsInCart;
         }
     },
     modules: {}
