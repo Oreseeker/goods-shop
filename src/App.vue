@@ -1,7 +1,9 @@
 <template>
   <div id="app">
 	  <div class="navbar">
-		  <div class="left"></div>
+		  <div class="left">
+			  <div class="logo">THE SHOP</div>
+		  </div>
 		  <div class="right">
 			  <div class="btn cart">
 				  <div class="number-of-goods">{{ numberOfProductsInCart }}</div>
@@ -9,12 +11,15 @@
 		  </div>
 	  </div>
 	  <div class="content">
-		  <product-card
-			  class="product"
-			  v-for="product in products"
-			  :key="`product-${ product.id }`"
-			  :product="product"
-		  ></product-card>
+		  <div class="section-title">Популярные товары</div>
+		  <div class="popular">
+			  <product-card
+				  class="product"
+				  v-for="product in products"
+				  :key="`product-${ product.id }`"
+				  :product="product"
+			  ></product-card>
+		  </div>
 	  </div>
   </div>
 </template>
@@ -22,54 +27,15 @@
 <script>
 import ProductCard from "@/components/Products/ProductCard";
 export default {
-	components: {ProductCard},
+	components: { ProductCard },
 	data() {
 		return {
-			products: [
-				{
-					id: 0,
-					title: 'Порошок Persil',
-					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600',
-					inStock: 20,
-					rating: 3
-				},
-				{
-					id: 1,
-					title: 'Порошок Persil',
-					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600',
-					inStock: 0,
-					rating: 5,
-				},
-				{
-					id: 2,
-					title: 'Порошок Persil',
-					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600',
-					inStock: 20,
-					rating: 0
-				},
-				{
-					id: 3,
-					title: 'Порошок Persil',
-					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600',
-					inStock: 20,
-					rating: 1
-				},
-				{
-					id: 4,
-					title: 'Порошок Persil',
-					image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
-					price: '600',
-					inStock: 20,
-					rating: 4
-				},
-			]
 		};
 	},
 	computed: {
+		products() {
+			return this.$store.getters.products;
+		},
 		numberOfProductsInCart() {
 			return this.$store.getters.numberOfProductsInCart;
 		}
@@ -78,6 +44,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+
 	* {
 		font-family: Avenir, sans-serif;
 		box-sizing: border-box;
@@ -117,6 +85,18 @@ export default {
 		justify-content: space-between;
 	}
 
+	.left {
+		display: flex;
+		align-items: center;
+		padding: 0 40px;
+	}
+
+	.logo {
+		font-size: 30px;
+		font-family: 'Sigmar one', cursive;
+		color: white;
+	}
+
 	.navbar .btn {
 		transition-property: background-color;
 		transition-duration: 0.3s;
@@ -152,8 +132,20 @@ export default {
 		flex-grow: 1;
 		overflow: auto;
 		display: flex;
-		flex-wrap: wrap;
 		padding: 20px;
+		flex-direction: column;
+	}
+
+	.section-title {
+		font-size: 25px;
+		font-weight: bold;
+		margin: 0 0 30px 0;
+	}
+
+	.popular {
+		flex-grow: 1;
+		display: flex;
+		flex-wrap: wrap;
 	}
 
 	.product-card {

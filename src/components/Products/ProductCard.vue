@@ -4,6 +4,7 @@
 		<div class="image" :style="{ backgroundImage: `url(${ product.image })` }"></div>
 		<div class="description">
 			<div class="title">{{ product.title }}</div>
+			<div class="info">Посмотреть описание</div>
 			<div class="price">{{ product.price }} руб.</div>
 			<div class="number-of-products">
 				<div class="btn change-number-of-products" @click="numberOfProducts -= 1">-</div>
@@ -48,7 +49,7 @@ export default {
 	.product-card {
 		position: relative;
 		width: 180px;
-		height: 350px;
+		height: 380px;
 		background: white;
 		border-radius: 6px;
 		border: 1px solid lightgray;
@@ -105,6 +106,17 @@ export default {
 	.title {
 		font-weight: bold;
 		height: 40px;
+	}
+	
+	.info {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+		cursor: pointer;
+		color: #5287ff;;
+		font-size: 13px;
+		font-weight: bold;
 	}
 
 	.price {
