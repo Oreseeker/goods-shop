@@ -10,12 +10,12 @@
 			  </div>
 		  </div>
 	  </div>
-	  <div class="content">
+	  <div class="content" ref="contentEl">
 		  <div class="section-title">Популярные товары</div>
 		  <div class="popular">
 			  <product-card
 				  class="product"
-				  v-for="product in products"
+				  v-for="product in popularProducts.slice(0, productsToDisplayPerRow() || 1)"
 				  :key="`product-${ product.id }`"
 				  :product="product"
 			  ></product-card>
@@ -30,14 +30,32 @@ export default {
 	components: { ProductCard },
 	data() {
 		return {
+			product
 		};
 	},
 	computed: {
 		products() {
 			return this.$store.getters.products;
 		},
+		popularProducts() {
+			return this.products.sort((product1, product2) => {
+				return product2.rating - product1.rating;
+			});
+		},
 		numberOfProductsInCart() {
 			return this.$store.getters.numberOfProductsInCart;
+		},
+		productsToDisplayPerRow() {
+
+		}
+	}
+	methods: {
+		productsToDisplayPerRow() {
+			const contentElWidth = this.$refs.contentEl.getBoundingClientRect().width;
+			const productEl = document.querySelector('.product');
+			const productElWidth = productEl.getBoundingClientRect().width;
+			const productElRightMargin = Number(window.getComputedStyle(productEl).marginRight.split('px')[0]);
+			return Math.floor((contentElWidth - productElWidth) / (productElWidth + productElRightMargin) + 1);
 		}
 	}
 }

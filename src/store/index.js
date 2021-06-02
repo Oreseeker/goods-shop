@@ -46,6 +46,134 @@ export default new Vuex.Store({
                 inStock: 20,
                 rating: 4
             },
+            {
+                id: 5,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 6,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 7,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 8,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 9,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 10,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 11,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 12,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 13,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 0
+            },            {
+                id: 14,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 4
+            },
+            {
+                id: 15,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 5
+            },
+            {
+                id: 16,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 1
+            },
+            {
+                id: 17,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 1
+            },
+            {
+                id: 18,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 0
+            },
+            {
+                id: 19,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 3
+            },
+            {
+                id: 20,
+                title: 'Порошок Persil',
+                image: 'https://gcdn.utkonos.ru/resample/900x900q90/images/photo/3331/3331176H.jpg',
+                price: '600',
+                inStock: 20,
+                rating: 2
+            },
+
         ],
         productsInCart: []
     },
