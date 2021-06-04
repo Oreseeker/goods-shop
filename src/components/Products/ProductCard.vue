@@ -3,7 +3,7 @@
 		<div class="not-in-stock-inner">Нет в наличии</div>
 		<div class="image" :style="{ backgroundImage: `url(${ product.image })` }"></div>
 		<div class="description">
-			<div class="title">{{ product.title }}</div>
+			<div class="title">{{ cutText(product.title, 30) }}</div>
 			<div class="info">Посмотреть описание</div>
 			<div class="price">{{ product.price }} руб.</div>
 			<div class="number-of-products">
@@ -86,6 +86,7 @@ export default {
 		height: 50%;
 		background-position: center;
 		background-size: contain;
+		background-repeat: no-repeat;
 		margin: 10px 0 0 0;
 	}
 
@@ -106,6 +107,8 @@ export default {
 	.title {
 		font-weight: bold;
 		height: 40px;
+		width: 100%;
+		word-break: break-all;
 	}
 	
 	.info {

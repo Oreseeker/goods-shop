@@ -10,15 +10,24 @@
 			  </div>
 		  </div>
 	  </div>
-	  <div class="content" ref="contentEl">
-		  <div class="section-title">Популярные товары</div>
-		  <div class="popular">
-			  <product-card
-				  class="product"
-				  v-for="product in popularProducts.slice(0, productsToDisplayPerRow() || 1)"
-				  :key="`product-${ product.id }`"
-				  :product="product"
-			  ></product-card>
+	  <div class="content">
+		  <div class="content-inner">
+			  <div class="section">
+				  <div class="section-title">Популярные товары</div>
+				  <div class="section-content">
+					  <product-card
+						  class="product"
+						  v-for="product in popularProducts.slice(0, dataPortionSizes.popular)"
+						  :key="`product-${ product.id }`"
+						  :product="product"
+					  ></product-card>
+				  </div>
+				  <div
+					  class="btn show-more"
+					  @click="dataPortionSizes.popular += dataPortionSizes.popular"
+					  v-show="dataPortionSizes.popular < popularProducts.length"
+				  >Показать еще</div>
+			  </div>
 		  </div>
 	  </div>
   </div>
@@ -26,11 +35,14 @@
 
 <script>
 import ProductCard from "@/components/Products/ProductCard";
+
 export default {
 	components: { ProductCard },
 	data() {
 		return {
-			product
+			dataPortionSizes: {
+				popular: 12
+			}
 		};
 	},
 	computed: {
@@ -44,18 +56,6 @@ export default {
 		},
 		numberOfProductsInCart() {
 			return this.$store.getters.numberOfProductsInCart;
-		},
-		productsToDisplayPerRow() {
-
-		}
-	}
-	methods: {
-		productsToDisplayPerRow() {
-			const contentElWidth = this.$refs.contentEl.getBoundingClientRect().width;
-			const productEl = document.querySelector('.product');
-			const productElWidth = productEl.getBoundingClientRect().width;
-			const productElRightMargin = Number(window.getComputedStyle(productEl).marginRight.split('px')[0]);
-			return Math.floor((contentElWidth - productElWidth) / (productElWidth + productElRightMargin) + 1);
 		}
 	}
 }
@@ -148,10 +148,15 @@ export default {
 
 	.content {
 		flex-grow: 1;
-		overflow: auto;
 		display: flex;
 		padding: 20px;
 		flex-direction: column;
+		overflow: auto;
+	}
+
+	.content-inner {
+		margin: 0 auto;
+		width: 750px;
 	}
 
 	.section-title {
@@ -160,13 +165,28 @@ export default {
 		margin: 0 0 30px 0;
 	}
 
-	.popular {
-		flex-grow: 1;
+	.section-content {
 		display: flex;
 		flex-wrap: wrap;
+		margin: 0 0 20px 0;
 	}
 
 	.product-card {
 		margin: 0 10px 10px 0;
+	}
+
+	.product-card:nth-child(4n) {
+		margin: 0;
+	}
+
+	.show-more {
+		padding: 20px 40px;
+		width: max-content;
+		color: #5287ff;
+		border: 1px solid #5287ff;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto;
 	}
 </style>
